@@ -12,11 +12,9 @@ plot_list <- c("bar","hist")
 
 ui <- fluidPage(
     titlePanel("Mini Project"),
-    tabsetPanel(
-        tabPanel("Actual Page", 
                  tabsetPanel(
-                     tabPanel("Analysis1", 
-                              titlePanel("Analysis1"),
+                     tabPanel("Analysis 1", 
+                              titlePanel("Analysis 1 – Comparing cities"),
                               sidebarLayout(
                                   sidebarPanel(
                                       selectInput("city_compare2", "Select city from list",
@@ -44,26 +42,9 @@ ui <- fluidPage(
                                   )
                               )),
                      
-                     
-                     # Analysis 2 Map
-                     tabPanel("Analysis2_map", 
-                              titlePanel("Analysis2 Map"),
-                              sidebarLayout(
-                                  sidebarPanel(
-                                      selectInput("city_select", "Select city from list",
-                                                  choices = cities_and_dates,selected = "munich"),
-                                      radioButtons("date_select", label = h3("Select The dataset from last 3 available"),
-                                                   choices = list("Most Recent" = 1, "2nd Recent" = 2, "3rd Recent" = 3),
-                                                   selected = 1)
-                                  ),
-                                  mainPanel(
-                                      uiOutput("selections_map"),
-                                      leafletOutput("mymap")
-                                  )
-                              )),
                      # Analysis 2 Deep Analysis
-                     tabPanel("Analysis2_deep", 
-                              titlePanel("Analysis2 Deep Analysis"),
+                     tabPanel("Analysis 2 - Part 1", 
+                              titlePanel("Analysis 2 – Deep dive into a city"),
                               sidebarLayout(
                                   sidebarPanel(
                                       selectInput("city_select2", "Select city from list",
@@ -81,12 +62,31 @@ ui <- fluidPage(
                                       #             selected = "box"),
                                       plotOutput("analysis2")
                                   )
+                                  
+                              )),
+                     
+                     
+                     # Analysis 2 Map
+                     tabPanel("Analysis 2 - Part 2", 
+                              titlePanel("Analysis 2 – Deep dive into a city - Maps"),
+                              sidebarLayout(
+                                  sidebarPanel(
+                                      selectInput("city_select", "Select city from list",
+                                                  choices = cities_and_dates,selected = "munich"),
+                                      radioButtons("date_select", label = h3("Select The dataset from last 3 available"),
+                                                   choices = list("Most Recent" = 1, "2nd Recent" = 2, "3rd Recent" = 3),
+                                                   selected = 1)
+                                  ),
+                                  mainPanel(
+                                      uiOutput("selections_map"),
+                                      leafletOutput("mymap")
+                                  )
                               ))
                      
                  )
         )
-    )
-)
+    
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
