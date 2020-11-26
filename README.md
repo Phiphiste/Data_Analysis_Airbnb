@@ -11,9 +11,11 @@ Authors:
 Go in the project directory.
 Run the pre_process_data.R file.
 It will create the data folder containing every listings of cites (.csv).
-
-''' library(shiny) '''
-''' runApp('app.R')'''
+Now, you can run the app.
+``` 
+library(shiny) 
+runApp('app.R') 
+```
 
 ## Understand the Shiny App
 
