@@ -8,6 +8,13 @@ Authors:
 
 ## Run the Shiny app
 
+Go in the project directory.
+Run the pre_process_data.R file.
+It will create the data folder containing every listings of cites (.csv).
+
+''' library(shiny) '''
+''' runApp('app.R')'''
+
 ## Understand the Shiny App
 
 - In Tab 1 (Analysis1 – Comparing cities), you can:
