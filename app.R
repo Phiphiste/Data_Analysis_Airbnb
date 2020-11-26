@@ -1,6 +1,7 @@
 library(shiny)
 library(leaflet)
 
+source('helper.R')
 
 cities_and_dates <- c("munich", "madrid","amsterdam","berlin","antwerp")
 feature_list <- c("id", "neighbourhood_cleansed", 
